@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DD9D6898BFD6AD40D9488D9 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238093408D3FBBA54031D12 /* Localization.swift */; };
+		2C0B2A562DC066A3B2372FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E451CD57BB9D4761D0A44445 /* Assets.xcassets */; };
+		36C209A982591560501BC424 /* CandyCoilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FF6709839D1ED30BFB32A /* CandyCoilUITests.swift */; };
+		3841009126DE371BBCBDA786 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D8676FD104617B08DF051C /* Profile.swift */; };
+		489FB81C785C62B912336920 /* CandyCoilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56122CCDA8659EF94D8B043A /* CandyCoilApp.swift */; };
+		557F17A753F27A8400989EA9 /* GameSocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE822BF595A510ADB5ADB30 /* GameSocialService.swift */; };
+		75E6D7E62BBFC05078203668 /* Arena.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F8486145BEC5CD86799203 /* Arena.swift */; };
+		7A8A6E3A45A0B309FD11ED4D /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93202C4D84609BEC8B1A526 /* Candy.swift */; };
+		BD70D65DC66BCA633986202E /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661C086E62D5B7CBDEB9E61F /* GameSession.swift */; };
+		F4552E462FF6296174CCE6ED /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5D1D9B98B5667028CF2019C1 /* Supabase */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2369F7331DB95F640DFB46A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC20B2E39A566CB5A469B826 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D91D8E13CB963A855703BEDC;
+			remoteInfo = CandyCoil;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36D8676FD104617B08DF051C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3E7FF6709839D1ED30BFB32A /* CandyCoilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyCoilUITests.swift; sourceTree = "<group>"; };
+		56122CCDA8659EF94D8B043A /* CandyCoilApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandyCoilApp.swift; sourceTree = "<group>"; };
+		661C086E62D5B7CBDEB9E61F /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		90BCB359DD4D53CE168E8C6D /* CandyCoil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyCoil.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		936D7BED78994921C4FB150F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A0BF82F7846C5CD1E37CD190 /* CandyCoilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyCoilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93202C4D84609BEC8B1A526 /* Candy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candy.swift; sourceTree = "<group>"; };
+		CEE822BF595A510ADB5ADB30 /* GameSocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSocialService.swift; sourceTree = "<group>"; };
+		D6F8486145BEC5CD86799203 /* Arena.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arena.swift; sourceTree = "<group>"; };
+		E238093408D3FBBA54031D12 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		E451CD57BB9D4761D0A44445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76C4E9F2FC2B853697F8F111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4552E462FF6296174CCE6ED /* Supabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00FE7B0BA12F1788429626B9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				56122CCDA8659EF94D8B043A /* CandyCoilApp.swift */,
+				661C086E62D5B7CBDEB9E61F /* GameSession.swift */,
+				CEE822BF595A510ADB5ADB30 /* GameSocialService.swift */,
+				E238093408D3FBBA54031D12 /* Localization.swift */,
+				36D8676FD104617B08DF051C /* Profile.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A6F11F3605C6CBACC74D2F12 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D6F8486145BEC5CD86799203 /* Arena.swift */,
+				C93202C4D84609BEC8B1A526 /* Candy.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AB6FBE3E680724C8D979E372 /* CandyCoil */ = {
+			isa = PBXGroup;
+			children = (
+				E451CD57BB9D4761D0A44445 /* Assets.xcassets */,
+				936D7BED78994921C4FB150F /* Info.plist */,
+				00FE7B0BA12F1788429626B9 /* App */,
+				A6F11F3605C6CBACC74D2F12 /* Core */,
+			);
+			path = CandyCoil;
+			sourceTree = "<group>";
+		};
+		C5EEA9B3A84C62FB7CEF0889 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90BCB359DD4D53CE168E8C6D /* CandyCoil.app */,
+				A0BF82F7846C5CD1E37CD190 /* CandyCoilUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA567259727B3DA00D045F02 = {
+			isa = PBXGroup;
+			children = (
+				AB6FBE3E680724C8D979E372 /* CandyCoil */,
+				CDEE98E5B4754AC28582FA52 /* UITests */,
+				C5EEA9B3A84C62FB7CEF0889 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDEE98E5B4754AC28582FA52 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				3E7FF6709839D1ED30BFB32A /* CandyCoilUITests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B740F1665349E8D2EF174BCC /* CandyCoilUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67A20723F6FF56D285CECCA6 /* Build configuration list for PBXNativeTarget "CandyCoilUITests" */;
+			buildPhases = (
+				1E1FE0F7D9B6520CDEB354D1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2100AFAE5E60117B86FB1FE9 /* PBXTargetDependency */,
+			);
+			name = CandyCoilUITests;
+			packageProductDependencies = (
+			);
+			productName = CandyCoilUITests;
+			productReference = A0BF82F7846C5CD1E37CD190 /* CandyCoilUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D91D8E13CB963A855703BEDC /* CandyCoil */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120FEC763A9CC901E374DBB9 /* Build configuration list for PBXNativeTarget "CandyCoil" */;
+			buildPhases = (
+				B7236A8E0B46CC150C399729 /* Sources */,
+				08C2C1E3F5EDF7D098BAB38A /* Resources */,
+				76C4E9F2FC2B853697F8F111 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CandyCoil;
+			packageProductDependencies = (
+				5D1D9B98B5667028CF2019C1 /* Supabase */,
+			);
+			productName = CandyCoil;
+			productReference = 90BCB359DD4D53CE168E8C6D /* CandyCoil.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BC20B2E39A566CB5A469B826 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					B740F1665349E8D2EF174BCC = {
+						TestTargetID = D91D8E13CB963A855703BEDC;
+					};
+					D91D8E13CB963A855703BEDC = {
+						DevelopmentTeam = 79FR46R3Y5;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A92219025EEEFD50606C876D /* Build configuration list for PBXProject "CandyCoil" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CA567259727B3DA00D045F02;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				97AD7C1510914315B8E420D6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C5EEA9B3A84C62FB7CEF0889 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D91D8E13CB963A855703BEDC /* CandyCoil */,
+				B740F1665349E8D2EF174BCC /* CandyCoilUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08C2C1E3F5EDF7D098BAB38A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C0B2A562DC066A3B2372FAB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E1FE0F7D9B6520CDEB354D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C209A982591560501BC424 /* CandyCoilUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7236A8E0B46CC150C399729 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75E6D7E62BBFC05078203668 /* Arena.swift in Sources */,
+				7A8A6E3A45A0B309FD11ED4D /* Candy.swift in Sources */,
+				489FB81C785C62B912336920 /* CandyCoilApp.swift in Sources */,
+				BD70D65DC66BCA633986202E /* GameSession.swift in Sources */,
+				557F17A753F27A8400989EA9 /* GameSocialService.swift in Sources */,
+				1DD9D6898BFD6AD40D9488D9 /* Localization.swift in Sources */,
+				3841009126DE371BBCBDA786 /* Profile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2100AFAE5E60117B86FB1FE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D91D8E13CB963A855703BEDC /* CandyCoil */;
+			targetProxy = 2369F7331DB95F640DFB46A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DE425E65077F9FD4636F03B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diego.CandyCoilUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CandyCoil;
+			};
+			name = Debug;
+		};
+		5C7D6E449ADA507AD459807C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79FR46R3Y5;
+				INFOPLIST_FILE = CandyCoil/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diego.candycoil;
+				SDKROOT = iphoneos;
+				SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9Sq1Lwg-6ydXmNqWIEHKUA_cUWQO6p6";
+				SUPABASE_URL = "https://byhusbciuprgzqroldjs.supabase.co";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6F239C2976A91ADE2675DE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 6;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B525ABD15317D4A01E06EE36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79FR46R3Y5;
+				INFOPLIST_FILE = CandyCoil/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diego.candycoil;
+				SDKROOT = iphoneos;
+				SUPABASE_PUBLISHABLE_KEY = "sb_publishable_9Sq1Lwg-6ydXmNqWIEHKUA_cUWQO6p6";
+				SUPABASE_URL = "https://byhusbciuprgzqroldjs.supabase.co";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CEBC043AB62A10FA6628ABA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 6;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D36DEBCC197C5DED8AC0C985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.diego.CandyCoilUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CandyCoil;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		120FEC763A9CC901E374DBB9 /* Build configuration list for PBXNativeTarget "CandyCoil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C7D6E449ADA507AD459807C /* Debug */,
+				B525ABD15317D4A01E06EE36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		67A20723F6FF56D285CECCA6 /* Build configuration list for PBXNativeTarget "CandyCoilUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DE425E65077F9FD4636F03B /* Debug */,
+				D36DEBCC197C5DED8AC0C985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A92219025EEEFD50606C876D /* Build configuration list for PBXProject "CandyCoil" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEBC043AB62A10FA6628ABA6 /* Debug */,
+				6F239C2976A91ADE2675DE0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97AD7C1510914315B8E420D6 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 2.55.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D1D9B98B5667028CF2019C1 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97AD7C1510914315B8E420D6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = BC20B2E39A566CB5A469B826 /* Project object */;
+}
