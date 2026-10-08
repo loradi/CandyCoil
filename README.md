@@ -2,7 +2,7 @@
 
 Prototipo nativo para iPhone/iPad (iOS 17+), escrito en SwiftUI y SpriteKit. El motor de juego funciona localmente; el inicio de sesión social y las salas usan Supabase.
 
-Sitio del proyecto (inglés, español y francés): [Inicio](docs/index.html) · [Privacidad](docs/privacy.html) · [Términos](docs/terms.html).
+Sitio del proyecto (inglés, español y francés): [Inicio](https://loradi.github.io/CandyCoil/) · [Privacidad](https://loradi.github.io/CandyCoil/privacy.html) · [Términos](https://loradi.github.io/CandyCoil/terms.html).
 
 ## Abrir y jugar
 
