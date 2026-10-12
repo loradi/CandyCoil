@@ -349,14 +349,55 @@ struct SocialView: View {
 
 struct GameView: View {
     let session: GameSession
+    @State private var joystickOrigin: CGPoint?
+    @State private var joystickOffset = CGSize.zero
+    @State private var boostPosition: CGPoint?
     private func t(_ key: Copy) -> String { session.language.text(key) }
     var body: some View {
         GeometryReader { geometry in
             let landscape = geometry.size.width > geometry.size.height
             let controlSize: CGFloat = landscape ? 104 : 132
+            let active = !session.gameOver && !session.paused
+            let joystickRadius = controlSize * 0.32
+            let visibleJoystickOrigin = joystickOrigin.map {
+                CGPoint(x: min(max($0.x, controlSize / 2), geometry.size.width - controlSize / 2),
+                        y: min(max($0.y, controlSize / 2), geometry.size.height - controlSize / 2))
+            }
             ZStack {
                 ink.ignoresSafeArea()
                 if let scene = session.scene { SpriteView(scene: scene).ignoresSafeArea() }
+                HStack(spacing: 0) {
+                    Color.clear.contentShape(Rectangle())
+                        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                            .onChanged { value in
+                                if joystickOrigin == nil { joystickOrigin = value.startLocation }
+                                let dx = value.location.x - value.startLocation.x
+                                let dy = value.location.y - value.startLocation.y
+                                let distance = max(1, hypot(dx, dy))
+                                let scale = min(1, joystickRadius / distance)
+                                joystickOffset = CGSize(width: dx * scale, height: dy * scale)
+                                session.steer(x: dx, y: dy)
+                            }
+                            .onEnded { _ in joystickOrigin = nil; joystickOffset = .zero })
+                    Color.clear.contentShape(Rectangle())
+                        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                            .onChanged { value in
+                                session.touchBoosting = true
+                                boostPosition = CGPoint(x: geometry.size.width / 2 + value.location.x, y: value.location.y)
+                            }
+                            .onEnded { _ in session.touchBoosting = false; boostPosition = nil })
+                }
+                .allowsHitTesting(active)
+                if let visibleJoystickOrigin, active {
+                    Joystick(size: controlSize, offset: joystickOffset)
+                        .position(visibleJoystickOrigin)
+                        .allowsHitTesting(false)
+                }
+                if let boostPosition, active {
+                    BoostButton(language: session.language, isActive: session.boosting)
+                        .position(x: min(max(boostPosition.x, 42), geometry.size.width - 42), y: min(max(boostPosition.y, 42), geometry.size.height - 42))
+                        .allowsHitTesting(false)
+                }
                 VStack {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 5) {
@@ -365,7 +406,6 @@ struct GameView: View {
                             Text("\(session.eaten) \(t(.candies)) · #\(session.rank)").font(.system(size: 9, weight: .bold, design: .monospaced)).foregroundStyle(muted)
                         }.padding(15).background(ink.opacity(0.85), in: RoundedRectangle(cornerRadius: 18))
                         Spacer()
-                        Button { session.paused = true } label: { Image(systemName: "pause.fill").font(.title3).padding(16).background(ink.opacity(0.85), in: Circle()) }.accessibilityLabel(t(.pause))
                     }
                     HStack {
                         Spacer()
@@ -381,12 +421,11 @@ struct GameView: View {
                         }
                     }
                     Spacer(minLength: 8)
-                    HStack(alignment: .bottom, spacing: landscape ? 16 : 12) {
-                        Joystick(size: controlSize) { x, y in session.steer(x: x, y: y) }
-                        Spacer(minLength: 0)
-                        BoostButton(language: session.language, isActive: session.boosting) { session.touchBoosting = $0 }
-                    }.padding(.bottom, 8)
-                }.padding(landscape ? 12 : 20).allowsHitTesting(!session.gameOver && !session.paused)
+                }.padding(landscape ? 12 : 20).allowsHitTesting(false)
+                VStack {
+                    HStack { Spacer(); Button { session.paused = true } label: { Image(systemName: "pause.fill").font(.title3).padding(16).background(ink.opacity(0.85), in: Circle()) }.accessibilityLabel(t(.pause)) }
+                    Spacer()
+                }.padding(landscape ? 12 : 20).allowsHitTesting(active)
                 if session.paused || session.gameOver { PauseCard(session: session) }
             }
         }.persistentSystemOverlays(.hidden)
@@ -397,12 +436,11 @@ struct Radar: View { let points: [CGPoint]; var size: CGFloat = 78; var body: so
 
 struct PauseCard: View { let session: GameSession; private func t(_ key: Copy) -> String { session.language.text(key) }; var body: some View { ZStack { Color.black.opacity(0.65).ignoresSafeArea(); VStack(spacing: 18) { Text(session.gameOver ? "🍬" : "☕️").font(.system(size: 52)); Text(session.gameOver ? t(.gameOver) : t(.pause)).font(.system(size: 29, weight: .black, design: .rounded)); Text(session.gameOver ? session.reason + "\n" + t(.gameOverDetail) : "").font(.system(size: 14)).foregroundStyle(muted).multilineTextAlignment(.center); if session.gameOver { Text("\(session.score) \(t(.score)) · \(session.eaten) \(t(.candies))").font(.headline).foregroundStyle(aqua) }; Button { if session.gameOver { session.retry() } else { session.paused = false } } label: { Text(session.gameOver ? t(.retry) : t(.resume)).font(.system(size: 13, weight: .black)).frame(maxWidth: .infinity).padding(19).background(aqua, in: RoundedRectangle(cornerRadius: 15)).foregroundStyle(ink) }; Button(t(.home), action: session.leave).font(.system(size: 13)).foregroundStyle(muted).padding(8) }.padding(28).background(ink, in: RoundedRectangle(cornerRadius: 28)).overlay(RoundedRectangle(cornerRadius: 28).stroke(aqua.opacity(0.18))).padding(24) } } }
 
-struct Joystick: View { var size: CGFloat = 132; var onMove: (Double, Double) -> Void; @State private var offset = CGSize.zero; var body: some View { let center = size / 2; let knob = size * 0.36; ZStack { Circle().fill(ink.opacity(0.7)).overlay(Circle().stroke(aqua.opacity(0.25), lineWidth: 1)); Circle().stroke(.white.opacity(0.06), lineWidth: 1).padding(size * 0.12); Image(systemName: "plus").font(.system(size: size * 0.34, weight: .ultraLight)).foregroundStyle(.white.opacity(0.1)); Circle().fill(aqua).frame(width: knob, height: knob).overlay(Image(systemName: "circle.grid.2x2.fill").font(.system(size: knob * 0.38)).foregroundStyle(ink.opacity(0.5))).offset(offset) }.frame(width: size, height: size).contentShape(Circle()).gesture(DragGesture(minimumDistance: 0).onChanged { value in let x = value.location.x - center, y = value.location.y - center, distance = max(1, hypot(x, y)), scale = min(1, size * 0.32 / distance); offset = CGSize(width: x * scale, height: y * scale); onMove(x, y) }.onEnded { _ in offset = .zero }) } }
+struct Joystick: View { var size: CGFloat = 132; var offset: CGSize = .zero; var body: some View { let knob = size * 0.36; ZStack { Circle().fill(ink.opacity(0.7)).overlay(Circle().stroke(aqua.opacity(0.25), lineWidth: 1)); Circle().stroke(.white.opacity(0.06), lineWidth: 1).padding(size * 0.12); Image(systemName: "plus").font(.system(size: size * 0.34, weight: .ultraLight)).foregroundStyle(.white.opacity(0.1)); Circle().fill(aqua).frame(width: knob, height: knob).overlay(Image(systemName: "circle.grid.2x2.fill").font(.system(size: knob * 0.38)).foregroundStyle(ink.opacity(0.5))).offset(offset) }.frame(width: size, height: size).allowsHitTesting(false) } }
 
 struct BoostButton: View {
     let language: GameLanguage
     let isActive: Bool
-    let setActive: (Bool) -> Void
     private var title: String { language.text(.boost) }
     var body: some View {
         VStack(spacing: 4) {
@@ -413,8 +451,6 @@ struct BoostButton: View {
             .background(isActive ? aqua : Color.orange.opacity(0.78), in: Circle())
             .overlay(Circle().stroke(.white.opacity(isActive ? 0.8 : 0.25), lineWidth: 2))
             .shadow(color: (isActive ? aqua : .orange).opacity(0.5), radius: isActive ? 14 : 7)
-            .contentShape(Circle())
-            .gesture(DragGesture(minimumDistance: 0).onChanged { _ in setActive(true) }.onEnded { _ in setActive(false) })
             .accessibilityElement().accessibilityLabel(title).accessibilityAddTraits(.isButton)
     }
 }
