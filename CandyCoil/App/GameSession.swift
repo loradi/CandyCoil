@@ -4,6 +4,15 @@ import GameController
 import Observation
 import AVFoundation
 
+struct LeaderboardEntry: Identifiable, Equatable {
+    let rank: Int
+    let name: String
+    let score: Int
+    let isCurrentPlayer: Bool
+
+    var id: Int { rank }
+}
+
 @MainActor @Observable final class GameSession {
     var playing = false
     var paused = false
@@ -16,7 +25,7 @@ import AVFoundation
     var rank = 1
     var best = UserDefaults.standard.integer(forKey: "best")
     var controllerName: String?
-    var leaderboard: [(String, Int)] = []
+    var leaderboard: [LeaderboardEntry] = []
     var radar: [CGPoint] = []
     var reason = ""
     var discovered = Set(UserDefaults.standard.array(forKey: "discovered") as? [Int] ?? [])
@@ -91,9 +100,21 @@ import AVFoundation
             }
             if score > best { best = score; UserDefaults.standard.set(best, forKey: "best") }
         }
-        let ranked = arena.snakes.filter(\.alive).sorted { $0.score > $1.score }
+        let ranked = arena.snakes.sorted {
+            $0.score == $1.score ? $0.id < $1.id : $0.score > $1.score
+        }
         rank = (ranked.firstIndex(where: { $0.id == 0 }) ?? 0) + 1
-        leaderboard = ranked.prefix(3).map { ($0.name, $0.score) }
+        let visible = Array(ranked.prefix(3))
+        if let player = ranked.first(where: { $0.id == 0 }), !visible.contains(where: { $0.id == player.id }) {
+            leaderboard = (visible + [player]).enumerated().map { index, snake in
+                let playerRank = (ranked.firstIndex(where: { $0.id == snake.id }) ?? index) + 1
+                return LeaderboardEntry(rank: playerRank, name: snake.name, score: snake.score, isCurrentPlayer: snake.id == 0)
+            }
+        } else {
+            leaderboard = visible.enumerated().map { index, snake in
+                LeaderboardEntry(rank: index + 1, name: snake.name, score: snake.score, isCurrentPlayer: snake.id == 0)
+            }
+        }
         radar = arena.snakes.filter(\.alive).map { CGPoint(x: $0.head.x / arena.extent, y: 1 - $0.head.y / arena.extent) }
     }
 }

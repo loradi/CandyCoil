@@ -61,7 +61,7 @@ struct LobbyView: View {
         .sheet(isPresented: $collection) { CollectionView(session: session) }
         .sheet(isPresented: $account) { AccountView(session: session) }
         .sheet(isPresented: $appearance) { AppearanceView(session: session) }
-        .sheet(isPresented: $social) { SocialView(session: session) }
+        .sheet(isPresented: $social) { SocialView(session: session) { session.start() } }
     }
     private var title: String { switch session.language { case .english: "One more sweet.\nOne more turn."; case .spanish: "Un dulce más.\nUna vuelta más."; case .french: "Un bonbon de plus.\nUn tour de plus." } }
     private var subtitle: String { switch session.language { case .english: "Small snake. Infinite appetite."; case .spanish: "Pequeña culebra. Hambre infinita."; case .french: "Petit serpent. Appétit infini." } }
@@ -212,6 +212,7 @@ struct AppearanceView: View {
 
 struct SocialView: View {
     let session: GameSession
+    let onStartGame: () -> Void
     @Environment(\.dismiss) private var dismiss
     @State private var friendCode = ""
     private func t(_ key: Copy) -> String { session.language.text(key) }
@@ -263,6 +264,18 @@ struct SocialView: View {
                         if social.npcSlots > 0 {
                             Label(t(.npcFill), systemImage: "cpu.fill").font(.caption).foregroundStyle(muted)
                         }
+                        Text(t(.roomGameNote)).font(.caption).foregroundStyle(muted).fixedSize(horizontal: false, vertical: true)
+                        Button {
+                            dismiss()
+                            onStartGame()
+                        } label: {
+                            Label(t(.startRoomGame), systemImage: "play.fill")
+                                .font(.system(size: 13, weight: .black, design: .rounded))
+                                .frame(maxWidth: .infinity)
+                                .padding(16)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .accessibilityIdentifier("start-room-game")
                         Button(role: .destructive) { Task { await social.leaveRoom() } } label: { Label(t(.leaveRoom), systemImage: "rectangle.portrait.and.arrow.right") }
                     }
                 } else {
@@ -359,9 +372,9 @@ struct GameView: View {
                         VStack(spacing: 8) {
                             VStack(alignment: .leading, spacing: 7) {
                                 Text(t(.leaderboard)).foregroundStyle(muted).font(.system(size: 8, weight: .bold, design: .monospaced))
-                                ForEach(Array(session.leaderboard.enumerated()), id: \.offset) { index, entry in
-                                    HStack { Text("\(index + 1)  \(entry.0)"); Spacer(); Text("\(entry.1)") }
-                                        .font(.system(size: 10, weight: .semibold)).foregroundStyle(entry.0 == "You" ? aqua : .white)
+                                ForEach(session.leaderboard) { entry in
+                                    HStack { Text("\(entry.rank)  \(entry.name)"); Spacer(); Text("\(entry.score)") }
+                                        .font(.system(size: 10, weight: .semibold)).foregroundStyle(entry.isCurrentPlayer ? aqua : .white)
                                 }
                             }.frame(width: 112).padding(12).background(ink.opacity(0.8), in: RoundedRectangle(cornerRadius: 15))
                             Radar(points: session.radar, size: landscape ? 48 : 64)

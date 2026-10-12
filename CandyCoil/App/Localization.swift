@@ -23,7 +23,7 @@ enum Copy: String {
     case bigWorld, ready, signOut, noFriends, addFriend, onlineStatus, bots, botDemo, practiceBots
     case roomCode, roomCodeHint, createRoom, quickMatch, friendCode, myFriendCode, sendRequest
     case pendingRequests, acceptFriend, declineFriend, roomPlayers, npcFill, shareInvite, leaveRoom
-    case findPlayers, roomFull
+    case findPlayers, roomFull, startRoomGame, roomGameNote
     case pattern, racingStripes, bubbleSpots, starTrail, confetti, checkerboard, scales, hearts, neonRings, lightning, deathBorder, deathSnake
 
     var values: [GameLanguage: String] {
@@ -102,6 +102,8 @@ enum Copy: String {
         case .leaveRoom: [.english: "LEAVE ROOM", .spanish: "SALIR DE LA SALA", .french: "QUITTER LA SALLE"]
         case .findPlayers: [.english: "No open rooms right now. We created one for you.", .spanish: "No hay salas abiertas. Creamos una para ti.", .french: "Aucune salle ouverte. Nous en avons créé une pour vous."]
         case .roomFull: [.english: "This room is full.", .spanish: "La sala está llena.", .french: "Cette salle est complète."]
+        case .startRoomGame: [.english: "START PRACTICE GAME", .spanish: "INICIAR PARTIDA DE PRÁCTICA", .french: "LANCER UNE PARTIE D’ENTRAÎNEMENT"]
+        case .roomGameNote: [.english: "Your invite room is ready. This build starts a local game with bots; room members are not yet connected inside the match.", .spanish: "Tu sala de invitación está lista. Esta versión inicia una partida local con bots; los miembros todavía no se conectan dentro del juego.", .french: "Votre salon d’invitation est prêt. Cette version lance une partie locale avec des bots ; les membres ne sont pas encore connectés dans la partie."]
         case .bots: [.english: "48 RIVALS · OFFLINE", .spanish: "48 RIVALES · SIN CONEXIÓN", .french: "48 RIVAUX · HORS LIGNE"]
         case .pattern: [.english: "BODY PATTERN", .spanish: "PATRÓN DEL CUERPO", .french: "MOTIF DU CORPS"]
         case .racingStripes: [.english: "Stripes", .spanish: "Rayas", .french: "Rayures"]
